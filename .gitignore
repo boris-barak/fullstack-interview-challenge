@@ -1,5 +1,8 @@
 tasks.md
-src/modern/routes/membership.routes.test.ts
-__snapshots__/
+# Decided to use these for my tests, so I really need to commit them.
+# Usually, I would just remove those, but I commented those out for the documentation purpose:
+# src/modern/routes/membership.routes.test.ts
+# __snapshots__/
 node_modules/
+# Needed to add this to not pollute the code base with my local IDE only related files.
 .idea/

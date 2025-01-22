@@ -5,4 +5,5 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
+  injectGlobals: true, // for not importing from @jest/globals in every test
 };
