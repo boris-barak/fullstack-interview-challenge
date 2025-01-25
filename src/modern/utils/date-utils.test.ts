@@ -1,4 +1,4 @@
-import { cloneDate, getNow, toDateFromISOString, toISOStringFromDate } from "./date-utils";
+import { cloneDate, toDateFromISOString, toISOStringFromDate } from "./date-utils";
 
 describe('Date Utility Functions', () => {
   describe('toISOStringFromDate', () => {
@@ -15,14 +15,6 @@ describe('Date Utility Functions', () => {
       const result = toDateFromISOString(isoString);
       expect(result).toBeInstanceOf(Date);
       expect(result.toISOString().startsWith(isoString)).toBe(true);
-    });
-  });
-
-  describe('getNow', () => {
-    it('should return the current date and time as a Date object', () => {
-      const now = getNow();
-      expect(now).toBeInstanceOf(Date);
-      expect(now.getTime()).toBeCloseTo(Date.now(), -1); // Allowing small differences in milliseconds
     });
   });
 

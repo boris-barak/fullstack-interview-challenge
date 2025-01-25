@@ -118,3 +118,49 @@ We believe that great developers are not bound to a specific technology set, but
 - Jest - https://jestjs.io/
 
 Best of luck and looking forward to what you are able to accomplish! 🙂
+
+***
+
+## Task 1: Solution
+
+### How I proceeded
+
+You can check the history of commits. I decided to cover legacy version first before implementing the modern one.
+Thanks to this, I was able to discover many bugs during this face. I documented those at concrete tests in the code and
+bellow in this file. Then, I moved the code into the prepared file, fixed a couple of major TS issues, and pointed the
+tests to the new path. Afterward, I rewrote parts step by step into smaller chunks and separated those by concerns.
+
+### Found and fixed bugs
+
+I discovered and fixed several bugs:
+
+- GET
+  - a typo (`membershipId` instead of `membership`) in condition for filtering periods
+- POST
+  - In validation:
+    - There was `req.body.billingPeriods` instead of `req.billingPeriods`. The condition for
+      `billingPeriodsLessThan6Months`
+      wasn't correctly evaluated.
+    - A condition that returned `cashPriceBelow100` message was reversed
+    - Missing check for missing billingPeriods. Evaluates now as `invalidBillingPeriods`
+    - Weirdly nested and reversed condition for `billingPeriodsLessThan3Years` was causing wrong evaluation
+    - The validation didn't allow billingInterval set to `weekly`
+  - Discrepancies between the data and code adding a new membership:
+    - Dates were saved with times as `2015-12-24T00:00:00.000Z` instead of `2015-12-24`
+    - There was `membershipId` used in the code instead of `membership` as in the data
+    - There was `user` used in the code instead of `userId` as in the data
+    - new membershipPeriods were not added into the memory database
+
+### Decisions
+
+- I decided to stay with the pre-installed libraries (`express`, `jest` and `supertest`) and use them because they are
+  sufficient for this solution. I believe that changing this stack into NestJS framework would be too time-consuming
+  for this challenge and more important is to show ability of creating a readable code structure without a framework too
+- I decided to use `date-fns` library for manipulating with time since it's easier to use and powerful than native
+  `Date` only
+
+### Suggestions for improvement
+
+- I would suggest to unify naming of properties since we have `userId` but also `membership`, and both represents an ID.
+  I would suggest to use "Id" postfix always when we use it for an ID.
+- I would suggest renaming `invalidBillingPeriods` to `invalidBillingInterval` because of the context how it's used
