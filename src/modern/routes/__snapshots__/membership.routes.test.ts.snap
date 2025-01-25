@@ -82,3 +82,140 @@ exports[`GET /memberships should return the list of memberships 1`] = `
   },
 ]
 `;
+
+exports[`POST /memberships new membership all properties should be in response when all required properties are set 1`] = `
+{
+  "billingInterval": "yearly",
+  "billingPeriods": 3,
+  "id": 9,
+  "name": "some_name",
+  "recurringPrice": 100,
+  "state": "pending",
+  "user": 2000,
+  "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  "validFrom": "2026-01-20T00:00:00.000Z",
+  "validUntil": "2029-01-20T00:00:00.000Z",
+}
+`;
+
+exports[`POST /memberships updated membership periods should contain all months 1`] = `
+[
+  {
+    "end": "2015-02-24T00:00:00.000Z",
+    "id": 1,
+    "membershipId": 11,
+    "start": "2015-01-24T00:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2015-03-24T00:00:00.000Z",
+    "id": 2,
+    "membershipId": 11,
+    "start": "2015-02-24T00:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2015-04-23T23:00:00.000Z",
+    "id": 3,
+    "membershipId": 11,
+    "start": "2015-03-24T00:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2015-05-23T23:00:00.000Z",
+    "id": 4,
+    "membershipId": 11,
+    "start": "2015-04-23T23:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2015-06-23T23:00:00.000Z",
+    "id": 5,
+    "membershipId": 11,
+    "start": "2015-05-23T23:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2015-07-23T23:00:00.000Z",
+    "id": 6,
+    "membershipId": 11,
+    "start": "2015-06-23T23:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2015-08-23T23:00:00.000Z",
+    "id": 7,
+    "membershipId": 11,
+    "start": "2015-07-23T23:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2015-09-23T23:00:00.000Z",
+    "id": 8,
+    "membershipId": 11,
+    "start": "2015-08-23T23:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2015-10-23T23:00:00.000Z",
+    "id": 9,
+    "membershipId": 11,
+    "start": "2015-09-23T23:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2015-11-24T00:00:00.000Z",
+    "id": 10,
+    "membershipId": 11,
+    "start": "2015-10-23T23:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2015-12-24T00:00:00.000Z",
+    "id": 11,
+    "membershipId": 11,
+    "start": "2015-11-24T00:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+]
+`;
+
+exports[`POST /memberships updated membership periods should contain all years 1`] = `
+[
+  {
+    "end": "2016-01-24T00:00:00.000Z",
+    "id": 1,
+    "membershipId": 12,
+    "start": "2015-01-24T00:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2017-01-24T00:00:00.000Z",
+    "id": 2,
+    "membershipId": 12,
+    "start": "2016-01-24T00:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+  {
+    "end": "2018-01-24T00:00:00.000Z",
+    "id": 3,
+    "membershipId": 12,
+    "start": "2017-01-24T00:00:00.000Z",
+    "state": "planned",
+    "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
+  },
+]
+`;
