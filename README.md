@@ -166,3 +166,5 @@ I discovered and fixed several bugs:
 - I would suggest to unify naming of properties since we have `userId` but also `membership`, and both represents an ID.
   I would suggest to use "Id" postfix always when we use it for an ID.
 - I would suggest renaming `invalidBillingPeriods` to `invalidBillingInterval` because of the context how it's used
+- If we want more strict bulletproof validation, I would suggest to use `Zod` library, and defining `Zod` schema instead
+  of `PostRequestBody` type
