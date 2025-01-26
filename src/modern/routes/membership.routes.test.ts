@@ -168,11 +168,11 @@ describe('POST /memberships', () => {
           billingInterval: 'monthly',
           recurringPrice: 100,
           billingPeriods: 11,
-          validFrom: '2015-01-24'
+          validFrom: '2015-04-01'
         });
 
         expect(result.statusCode).toEqual(201);
-        expect(result.body.membership.validUntil).toEqual("2015-12-24");
+        expect(result.body.membership.validUntil).toEqual("2016-02-29");
       });
 
       it('should add years from validFrom', async () => {
@@ -185,7 +185,7 @@ describe('POST /memberships', () => {
         });
 
         expect(result.statusCode).toEqual(201);
-        expect(result.body.membership.validUntil).toEqual("2018-01-24");
+        expect(result.body.membership.validUntil).toEqual("2018-01-23");
       });
 
       it('should add weeks from validFrom', async () => {
@@ -198,7 +198,7 @@ describe('POST /memberships', () => {
         });
 
         expect(result.statusCode).toEqual(201);
-        expect(result.body.membership.validUntil).toEqual("2025-04-04");
+        expect(result.body.membership.validUntil).toEqual("2025-04-03");
       });
     });
 
@@ -280,7 +280,7 @@ describe('POST /memberships', () => {
           "userId": 2000,
           "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464",
           "validFrom": "2026-01-20",
-          "validUntil": "2029-01-20"
+          "validUntil": "2029-01-19"
         });
       });
     });
@@ -339,21 +339,21 @@ describe('POST /memberships', () => {
       });
 
       expect(addMembershipPeriodSpy).toHaveBeenLastCalledWith([{
-        "end": "2027-01-20",
+        "end": "2027-01-19",
         "id": 1,
         "membership": 4,
         "start": "2026-01-20",
         "state": "planned",
         "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464"
       }, {
-        "end": "2028-01-20",
+        "end": "2028-01-19",
         "id": 2,
         "membership": 4,
         "start": "2027-01-20",
         "state": "planned",
         "uuid": "fdc44ef3-d71c-42d9-8077-17abc9de8464"
       }, {
-        "end": "2029-01-20",
+        "end": "2029-01-19",
         "id": 3,
         "membership": 4,
         "start": "2028-01-20",

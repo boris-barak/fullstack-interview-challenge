@@ -1,19 +1,25 @@
 import { Membership, MembershipPeriod } from "../types/membership.types";
 import { toDateFromISOString, toISOStringFromDate } from "../utils/date-utils";
 import { v4 as uuidv4 } from "uuid";
-import { getValidUntilDate } from "./get-valid-until-date";
+import { addBillingIntervals, getValidUntilDate } from "./get-valid-until-date";
 
 export const createNewMembershipPeriods = (membership: Membership) => {
   let membershipPeriods: Array<MembershipPeriod> = [];
 
-  let periodStart = toDateFromISOString(membership.validFrom);
+  const membershipValidFrom = toDateFromISOString(membership.validFrom);
+  const billingInterval = membership.billingInterval;
 
   for (let i = 0; i < membership.billingPeriods; i++) {
-    const validFrom = periodStart;
+    const validFrom = addBillingIntervals({
+      validFrom: membershipValidFrom,
+      billingPeriods: i,
+      billingInterval
+    });
+
     const validUntil = getValidUntilDate({
       validFrom,
       billingPeriods: 1,
-      billingInterval: membership.billingInterval
+      billingInterval
     });
 
     const period: MembershipPeriod = {
@@ -25,8 +31,6 @@ export const createNewMembershipPeriods = (membership: Membership) => {
       state: 'planned'
     };
     membershipPeriods.push(period);
-
-    periodStart = validUntil;
   }
 
   return membershipPeriods;

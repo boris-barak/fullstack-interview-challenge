@@ -149,7 +149,9 @@ I discovered and fixed several bugs:
     - Dates were saved with times as `2015-12-24T00:00:00.000Z` instead of `2015-12-24`
     - There was `membershipId` used in the code instead of `membership` as in the data
     - There was `user` used in the code instead of `userId` as in the data
-    - new membershipPeriods were not added into the memory database
+    - New `membershipPeriods` were not added into the memory database
+    - End date in `membershipPeriods` was set incorrectly. One day need to be subtracted to not be the same day as start
+      date of the next one
 
 ### Decisions
 
