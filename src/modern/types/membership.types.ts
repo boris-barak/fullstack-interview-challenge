@@ -55,6 +55,9 @@ export type PostRequestBody = {
   validFrom?: ISOStringDate; // start of the validity
 }
 
-export interface PostResponseBody {
-
+export type PostResponseBody = {
+  message: string
+} | {
+  membership: Membership,
+  membershipPeriods: ReadonlyArray<MembershipPeriod>,
 }

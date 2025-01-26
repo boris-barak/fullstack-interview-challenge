@@ -19,7 +19,7 @@ router.get("/", (req: Request<EmptyObject, GetResponseBody, EmptyObject>, res: R
   res.status(200).json(rows);
 });
 
-router.post("/", (req: Request<EmptyObject, PostResponseBody, PostRequestBody>, res: Response) => {
+router.post("/", (req: Request<EmptyObject, PostResponseBody, PostRequestBody>, res: Response<PostResponseBody>) => {
   const userId = 2000;
 
   const errorMessage = validateMembershipPostRequest(req.body);
